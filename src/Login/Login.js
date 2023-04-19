@@ -1,13 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Card, Form, Button, Container } from 'react-bootstrap';
-import { useAuth } from './AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { logIn } = useAuth();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -16,7 +14,17 @@ const Login = () => {
     let failed = false;
     try {
       setLoading(true);
-      await logIn(emailRef.current.value, passwordRef.current.value);
+
+      const response = await fetch('http://localhost:4000/login');
+      const data = await response.json();
+
+      const user = data.find(user => user.email === emailRef.current.value && user.password === passwordRef.current.value);
+      if (!user) {
+        throw new Error('Email ou senha invalidos');
+      }
+
+      // Faça o login do usuário aqui
+
     } catch (error) {
       failed = true;
       toast.error(error.message);

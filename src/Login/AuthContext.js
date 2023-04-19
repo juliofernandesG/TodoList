@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+import axios from 'axios';
 
 const AuthContext = React.createContext();
 
@@ -30,9 +31,16 @@ export function AuthProvider({ children }) {
   };
 
   useEffect(() => {
-    return onAuthStateChanged(auth, (user) => {
+    return onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
       setLoading(false);
+
+      if (user) {
+        const token = await user.getIdToken();
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      } else {
+        delete axios.defaults.headers.common['Authorization'];
+      }
     });
   }, []);
 

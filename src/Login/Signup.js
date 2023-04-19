@@ -2,8 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Card, Form, Button, Alert, Container } from 'react-bootstrap';
 import { useAuth } from './AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import { database } from '../firebase/firebase';
-import { ref, set, child } from 'firebase/database';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Signup = () => {
   const emailRef = useRef();
@@ -23,9 +22,22 @@ const Signup = () => {
     try {
       setLoading(true);
       setError('');
+      const response = await fetch('http://localhost:4000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: emailRef.current.value,
+          password: passwordRef.current.value
+        })
+      });
+      if (!response.ok) {
+        throw new Error('Failed to create a new account');
+      }
       await signUp(emailRef.current.value, passwordRef.current.value);
-    } catch {
-      setError('Failed to create a new account');
+    } catch (error) {
+      setError(error.message);
     }
     setLoading(false);
     setSignedUp(true);
@@ -34,17 +46,9 @@ const Signup = () => {
 
   useEffect(() => {
     if (signedUp && currentUser) {
-      const userRef = ref(database, 'users');
-      set(child(userRef, currentUser.uid), {
-        name: 'unknown',
-        email: currentUser.email,
-        created_at: currentUser.metadata.createdAt,
-        avatar_url:
-          'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-        profiles_connected: '',
-      });
+      toast.success('Account created successfully!');
     }
-  }, [signedUp]);
+  }, [signedUp, currentUser]);
 
   return (
     <Container
@@ -83,6 +87,7 @@ const Signup = () => {
           Already have an account? <Link to='/login'>Log in</Link>
         </div>
       </div>
+      <ToastContainer />
     </Container>
   );
 };
