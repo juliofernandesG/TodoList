@@ -1,0 +1,254 @@
+body {
+  background-color: #e5e4e2;
+}
+
+.nav-link {
+  color: black;
+}
+
+i {
+  font-size: 30px;
+}
+
+i.drop-down-icon {
+  font-size: 22px;
+}
+
+.post-functions i {
+  font-size: 20px;
+}
+
+.compose-input {
+  position: relative;
+}
+
+.compose-input-button {
+  position: absolute;
+  font-size: 30px;
+  bottom: 0;
+  margin-left: 12px;
+  padding-bottom: 10px;
+}
+
+.compose-input-photo,
+.compose-input-fake-photo {
+  position: absolute;
+  bottom: 0;
+  margin-left: 12px;
+  margin-bottom: 55px;
+  border-radius: 8px;
+}
+
+.compose-input-fake-photo {
+  opacity: 50%;
+}
+
+.upload-preview-photo {
+  height: 100px;
+}
+
+.compose-input-fake-photo img {
+  border-radius: 8px;
+}
+
+.compose-input-fake-photo p {
+  margin-bottom: 5px;
+}
+
+.fa-check {
+  font-size: 15px;
+}
+
+img.post-avatar,
+.profile-connected-avatar,
+.input-field-avatar {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+img.post-image {
+  width: 200px;
+  border-radius: 5%;
+}
+
+p.post-content {
+  font-size: 25px;
+}
+
+p.scheduled-post-content {
+  font-size: 17px;
+}
+
+h6.post-time-stamp {
+  font-size: 12px;
+  color: rgb(151, 150, 150);
+}
+
+h6.scheduled-post-time-stamp {
+  font-size: 13px;
+  margin-top: 5px;
+  color: gray;
+}
+
+form textarea {
+  border: none !important;
+  outline: none;
+}
+
+form .form-control:focus {
+  box-shadow: none;
+}
+
+.compose-input .form-control {
+  font-size: 25px;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 8px;
+  text-decoration: none;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+li i {
+  font-size: 19px;
+}
+
+.post-btn {
+  width: 100%;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #f1f0ee;
+  color: grey;
+  text-align: start;
+  border: none;
+}
+
+.post-btn:hover {
+  background-color: #c4c3c1;
+  border: none;
+  color: #36454f;
+}
+
+.input-row {
+  background-color: white;
+  height: 165px;
+  margin-bottom: 20px;
+  padding: 25px 20px;
+  border-radius: 10px;
+}
+
+.input-row,
+.timeline-post-row,
+.profile-row,
+#dropdown-media.btn-primary,
+.connect-row,
+ul.navbar,
+.login-card,
+.signup-card {
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+}
+
+ul.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.fb-badge {
+  background-color: #1778f2 !important;
+}
+
+.insta-badge {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  ) !important;
+}
+
+.fa-instagram {
+  border-radius: 7px;
+  padding: 1px 2px;
+  color: white;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+.fa-facebook-square,
+.fa-calendar-alt {
+  padding: 1px 2px;
+}
+
+.fa-facebook-square {
+  color: #1778f2;
+}
+
+.input-modal-title {
+  font-size: 20px;
+}
+
+.selected-profile-picture {
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.selected-profile-badge {
+  border-radius: 50px;
+  background-color: #e5e4e2 !important;
+  color: black;
+  margin-right: 10px;
+}
+
+.selected-profile-badge .fas {
+  font-size: 12px;
+  margin-left: 10px;
+  color: grey;
+}
+
+img.profile-avatar,
+.profile-avatar-edit {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#dropdown-media.btn-primary {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+}
+
+#dropdown-media.btn-primary:focus {
+  box-shadow: none;
+}
+
+.spinner-grow {
+  height: 1rem;
+  width: 1rem;
+}
